@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  navigations = [
+    { path: '/', name: 'Home' },
+    { path: '/bookcase', name: 'Bookcase' },
+    { path: '/help', name: 'Help' },
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
