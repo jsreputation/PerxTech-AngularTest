@@ -1,1 +1,43 @@
-<p>bookcase works!</p>
+<div class="container pt-100 pb-100">
+  <div>
+
+    <div class="mb-30">
+      <form [formGroup]="searchForm">
+        <input class="border px-20 py-10" placeholder="Search Keyword..." formControlName="keyword">
+      </form>
+    </div>
+
+    <table class="table-auto">
+      <thead>
+      <tr class="border bg-sky-300">
+        <th class="border p-10">ID</th>
+        <th class="border p-10">Type</th>
+        <!--<th class="border p-10">Author</th>-->
+        <!--<th class="border p-10">Publisher</th>-->
+        <th class="border p-10">Links</th>
+        <th class="border p-10">Created</th>
+        <th class="border p-10">Updated</th>
+        <th class="border p-10">Content</th>
+        <th class="border p-10">Image</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="border" *ngFor="let row of data$ | async ">
+        <td class="px-10 py-10 border">{{ row.id }}</td>
+        <td class="px-10 py-10 border">{{ row.type }}</td>
+        <!--<td class="px-10 py-10 border">{{ row.relationships.authors.links.self }}</td>-->
+        <!--<td class="px-10 py-10 border">{{ row.relationships.publishers.links.self }}</td>-->
+        <td class="px-10 py-10 border">{{ row.links.self }}</td>
+        <td class="px-10 py-10 border">{{ row.attributes.created_at | date: 'medium' }}</td>
+        <td class="px-10 py-10 border">{{ row.attributes.updated_at | date: 'medium' }}</td>
+        <td class="px-10 py-10 border">{{ row.attributes.content }}</td>
+        <td class="px-10 py-10 border">
+          <div>
+            <img [src]="row.attributes.display_properties.image" alt="Image">
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
