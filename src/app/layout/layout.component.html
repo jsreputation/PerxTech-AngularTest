@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<app-header></app-header>
-<section class="pt-80">
+<app-header *ngIf="currentRoute"></app-header>
+<section>
   <router-outlet></router-outlet>
 </section>
