@@ -5,3 +5,7 @@
 * {
   font-family: 'Poppins', sans-serif;
 }
+
+.btn {
+  @apply font-medium h-60 shadow-md text-white bg-orange-500 px-20 flex items-center text-18 cursor-pointer;
+}
